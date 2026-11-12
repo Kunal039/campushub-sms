@@ -103,8 +103,23 @@ Every route except `/api/health` and register / login needs the header `Authoriz
 | 9. Full-stack integration — `fetch`, `cors`, CRUD UI in sync with the database | `client/src/api/client.js`, `pages/Students.jsx`, `server/src/app.js` |
 | 10. Mini project | this repository |
 
+## Deploy to Vercel
+
+The repo is set up to deploy as one Vercel project: the React build is served as static files and the Express app
+runs as a serverless function (`api/index.js`, wired up in `vercel.json`).
+
+1. Create a free cluster on MongoDB Atlas, add a database user, and under Network Access allow `0.0.0.0/0`
+   (Vercel functions do not have fixed IP addresses). Copy the connection string and put a database name in it,
+   e.g. `...mongodb.net/campushub`.
+2. On vercel.com choose **Add New → Project**, import this GitHub repository and keep the detected settings.
+3. Add these environment variables to the project, then deploy:
+   - `MONGO_URI` — the Atlas connection string
+   - `JWT_SECRET` — a long random string
+   - `JWT_EXPIRES_IN` — e.g. `1d`
+4. Load the sample data into Atlas once from your machine: put the Atlas string in `MONGO_URI` in `server/.env`
+   and run `npm run seed`.
+
 ## Ideas for extending it
 
-- Deploy: API on Render / Railway, database on MongoDB Atlas, client on Vercel / Netlify (set `VITE_API_URL` and `CLIENT_ORIGIN`)
 - Attendance or marks per subject as a new model
 - Redux Toolkit in place of the Context API; automated tests with Vitest and Supertest

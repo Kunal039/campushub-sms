@@ -2,6 +2,7 @@
   "name": "campushub-sms",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "description": "CampusHub - MERN Student Management System (Full Stack Development - I semester project)",
   "scripts": {
     "install-all": "npm install && npm install --prefix server && npm install --prefix client",
