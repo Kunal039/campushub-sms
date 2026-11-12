@@ -1,6 +1,6 @@
 // Small fetch wrapper: adds the JWT, parses JSON and turns API errors into exceptions.
 const BASE = import.meta.env.VITE_API_URL || '/api';
-const TOKEN_KEY = 'campushub_token';
+const TOKEN_KEY = 'enrolla_token';
 
 export const tokenStore = {
   get() {

@@ -16,7 +16,7 @@ export default function Home() {
         <span className="eyebrow">MERN stack · Semester project</span>
         <h1>Manage your campus records in one place</h1>
         <p>
-          CampusHub is a student management system built with MongoDB, Express, React and Node.js — a single-page
+          Enrolla is a student management system built with MongoDB, Express, React and Node.js — a single-page
           app talking to a REST API.
         </p>
         <div className="hero-actions">

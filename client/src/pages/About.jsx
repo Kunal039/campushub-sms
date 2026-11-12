@@ -11,7 +11,7 @@ export default function About() {
     <section className="prose">
       <h1>About this project</h1>
       <p className="muted">
-        CampusHub is the lab mini project for Full Stack Development – I. Each part of the app maps to an experiment in
+        Enrolla is the lab mini project for Full Stack Development – I. Each part of the app maps to an experiment in
         the lecture plan, from React components to full-stack CRUD.
       </p>
       <div className="table-wrap">

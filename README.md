@@ -1,4 +1,4 @@
-# CampusHub — Student Management System
+# Enrolla — Student Management System
 
 Semester project for **Full Stack Development – I (24CSP-304 / 24ITP-304)**, built on the MERN stack:
 **M**ongoDB + Mongoose, **E**xpress, **R**eact (Vite), **N**ode.js, with JWT + bcrypt authentication.
@@ -48,7 +48,7 @@ or sign up for a new (staff) account.
 ## Project structure
 
 ```
-campushub-sms/
+enrolla/
 ├── server/                  Express + Mongoose REST API
 │   └── src/
 │       ├── server.js        entry point: loads .env, connects to MongoDB, starts listening
@@ -110,7 +110,7 @@ runs as a serverless function (`api/index.js`, wired up in `vercel.json`).
 
 1. Create a free cluster on MongoDB Atlas, add a database user, and under Network Access allow `0.0.0.0/0`
    (Vercel functions do not have fixed IP addresses). Copy the connection string and put a database name in it,
-   e.g. `...mongodb.net/campushub`.
+   e.g. `...mongodb.net/enrolla`.
 2. On vercel.com choose **Add New → Project**, import this GitHub repository and keep the detected settings.
 3. Add these environment variables to the project, then deploy:
    - `MONGO_URI` — the Atlas connection string

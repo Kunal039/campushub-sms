@@ -46,7 +46,7 @@ try {
     return {
       name,
       rollNo: `24${course.code.replace(/[^A-Z]/g, '').slice(-3)}${1001 + i}`,
-      email: `${name.toLowerCase().replace(/\s+/g, '.')}@campushub.test`,
+      email: `${name.toLowerCase().replace(/\s+/g, '.')}@enrolla.test`,
       age: 18 + (i % 6),
       course: course._id,
       semester: status === 'graduated' ? maxSem : 1 + (i % maxSem),

@@ -11,7 +11,7 @@ if (!process.env.JWT_SECRET) {
 
 try {
   await connectDB();
-  app.listen(PORT, () => console.log(`CampusHub API running on http://localhost:${PORT}`));
+  app.listen(PORT, () => console.log(`Enrolla API running on http://localhost:${PORT}`));
 } catch (err) {
   console.error(`Could not connect to MongoDB: ${err.message}`);
   console.error('Is MongoDB running? Check MONGO_URI in server/.env');

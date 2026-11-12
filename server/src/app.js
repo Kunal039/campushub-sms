@@ -14,7 +14,7 @@ app.use(cors({ origin: (process.env.CLIENT_ORIGIN || 'http://localhost:5173').sp
 app.use(express.json());
 app.use(logger);
 
-app.get('/', (_req, res) => res.json({ name: 'CampusHub API', docs: 'See README.md for the endpoint list' }));
+app.get('/', (_req, res) => res.json({ name: 'Enrolla API', docs: 'See README.md for the endpoint list' }));
 app.get('/api/health', (_req, res) => res.json({ success: true, status: 'ok', time: new Date().toISOString() }));
 
 app.use('/api/auth', authRoutes);

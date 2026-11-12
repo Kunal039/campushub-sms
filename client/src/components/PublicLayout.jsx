@@ -5,8 +5,8 @@ import Footer from './Footer.jsx';
 export function Brand({ to = '/' }) {
   return (
     <Link to={to} className="brand">
-      <span className="brand-mark">C</span>
-      CampusHub
+      <span className="brand-mark">E</span>
+      Enrolla
     </Link>
   );
 }
