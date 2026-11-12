@@ -53,19 +53,20 @@ enrolla/
 │   └── src/
 │       ├── server.js        entry point: loads .env, connects to MongoDB, starts listening
 │       ├── app.js           middleware + route wiring
-│       ├── config/db.js     Mongoose connection
-│       ├── models/          User, Student, Course schemas
-│       ├── middleware/      logger, validate, auth (verifyToken, authorize), errorHandler
-│       ├── routes/          auth, students, courses, stats
+│       ├── models.js        Mongoose connection + User, Course, Student schemas
+│       ├── middleware.js    logger, validation, auth (verifyToken, authorize), error handler
+│       ├── routes.js        auth, students, courses and stats routes
 │       └── seed.js          sample data
-└── client/                  React single-page app (Vite)
-    └── src/
-        ├── App.jsx          route table (public, protected, nested, 404)
-        ├── api/client.js    fetch wrapper that attaches the JWT
-        ├── context/         AuthContext, ToastContext
-        ├── hooks/           useDebounce
-        ├── components/      layouts, ProtectedRoute, Modal, StudentForm, StudentCard, …
-        └── pages/           Home, About, Login, Register, Dashboard, Students, StudentDetail, Courses, Profile, NotFound
+├── client/                  React single-page app (Vite)
+│   └── src/
+│       ├── App.jsx          route table (public, protected, nested, 404)
+│       ├── api.js           fetch wrapper that attaches the JWT
+│       ├── context.jsx      auth and toast contexts
+│       ├── components/      Layout, ui (spinner, modal, field, pagination), StudentForm, StudentCard
+│       └── pages/           PublicPages (Home, About, 404), Auth (Login, Register), Dashboard,
+│                            Students, StudentDetail, Courses, Profile
+├── api/index.js             Vercel serverless entry point for the Express app
+└── vercel.json              Vercel build and routing settings
 ```
 
 ## API
@@ -92,15 +93,15 @@ Every route except `/api/health` and register / login needs the header `Authoriz
 
 | Experiment | Where to look |
 | --- | --- |
-| 1. Components & JSX — props, `.map()` with keys, nested components, conditional rendering | `components/StudentCard.jsx`, `components/AppLayout.jsx` (Header, Sidebar, Footer), `pages/Students.jsx` |
-| 2. State & hooks — `useState`, controlled forms, `useEffect` fetch, spinner, error handling, live search | `components/StudentForm.jsx`, `pages/Students.jsx`, `hooks/useDebounce.js` |
-| 3. React Router — `<Link>`, route params, protected routes, nested routes, 404 | `App.jsx`, `components/ProtectedRoute.jsx`, `pages/StudentDetail.jsx`, `pages/NotFound.jsx` |
+| 1. Components & JSX — props, `.map()` with keys, nested components, conditional rendering | `components/StudentCard.jsx`, `components/Layout.jsx` (Header, Sidebar, Footer), `pages/Students.jsx` |
+| 2. State & hooks — `useState`, controlled forms, `useEffect` fetch, spinner, error handling, live search | `components/StudentForm.jsx`, `pages/Students.jsx`, `useDebounce` in `components/ui.jsx` |
+| 3. React Router — `<Link>`, route params, protected routes, nested routes, 404 | `App.jsx`, `ProtectedRoute` in `components/Layout.jsx`, `pages/StudentDetail.jsx`, `pages/PublicPages.jsx` |
 | 4. Student Management System | the whole `client/` app |
 | 5. Node.js environment — modules, `fs`, HTTP | not part of the app (those are standalone lab scripts); `server/src` shows ES modules and environment config |
-| 6. Express REST API — routing, CRUD, status codes, logger, validation, global error handler | `server/src/app.js`, `routes/students.js`, `middleware/` |
-| 7. JWT & bcrypt — register, login, `verifyToken`, token expiry, profile | `models/User.js`, `routes/auth.js`, `middleware/auth.js` |
-| 8. MongoDB & Mongoose — schema validation, CRUD, reference + `.populate()`, regex search, sort, `.skip()` / `.limit()` | `models/`, `routes/students.js`, `routes/stats.js` |
-| 9. Full-stack integration — `fetch`, `cors`, CRUD UI in sync with the database | `client/src/api/client.js`, `pages/Students.jsx`, `server/src/app.js` |
+| 6. Express REST API — routing, CRUD, status codes, logger, validation, global error handler | `server/src/app.js`, `routes.js`, `middleware.js` |
+| 7. JWT & bcrypt — register, login, `verifyToken`, token expiry, profile | `models.js` (User), `routes.js` (auth), `middleware.js` (verifyToken) |
+| 8. MongoDB & Mongoose — schema validation, CRUD, reference + `.populate()`, regex search, sort, `.skip()` / `.limit()` | `models.js`, `routes.js` (students, stats) |
+| 9. Full-stack integration — `fetch`, `cors`, CRUD UI in sync with the database | `client/src/api.js`, `pages/Students.jsx`, `server/src/app.js` |
 | 10. Mini project | this repository |
 
 ## Deploy to Vercel

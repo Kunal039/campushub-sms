@@ -1,7 +1,7 @@
 // Vercel serverless entry point: runs the same Express app as server/src/server.js.
 // The MongoDB connection is cached so warm invocations reuse it.
 import app from '../server/src/app.js';
-import { connectDB } from '../server/src/config/db.js';
+import { connectDB } from '../server/src/models.js';
 
 let ready;
 

@@ -1,12 +1,7 @@
 import express from 'express';
 import cors from 'cors';
-import { logger } from './middleware/logger.js';
-import { verifyToken } from './middleware/auth.js';
-import { notFound, errorHandler } from './middleware/errorHandler.js';
-import authRoutes from './routes/auth.js';
-import studentRoutes from './routes/students.js';
-import courseRoutes from './routes/courses.js';
-import statsRoutes from './routes/stats.js';
+import { logger, verifyToken, notFound, errorHandler } from './middleware.js';
+import { authRouter, studentRouter, courseRouter, statsRouter } from './routes.js';
 
 const app = express();
 
@@ -17,11 +12,11 @@ app.use(logger);
 app.get('/', (_req, res) => res.json({ name: 'Enrolla API', docs: 'See README.md for the endpoint list' }));
 app.get('/api/health', (_req, res) => res.json({ success: true, status: 'ok', time: new Date().toISOString() }));
 
-app.use('/api/auth', authRoutes);
+app.use('/api/auth', authRouter);
 // Everything below requires a valid JWT
-app.use('/api/students', verifyToken, studentRoutes);
-app.use('/api/courses', verifyToken, courseRoutes);
-app.use('/api/stats', verifyToken, statsRoutes);
+app.use('/api/students', verifyToken, studentRouter);
+app.use('/api/courses', verifyToken, courseRouter);
+app.use('/api/stats', verifyToken, statsRouter);
 
 app.use(notFound);
 app.use(errorHandler);

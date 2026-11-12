@@ -1,13 +1,13 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { api } from '../api/client.js';
-import { useToast } from '../context/ToastContext.jsx';
-import { useDebounce } from '../hooks/useDebounce.js';
-import Spinner, { ErrorState } from '../components/Spinner.jsx';
-import Modal, { ConfirmDialog } from '../components/Modal.jsx';
+import { api } from '../api.js';
+import { useToast } from '../context.jsx';
+import { useDebounce } from '../components/ui.jsx';
+import { Spinner, ErrorState } from '../components/ui.jsx';
+import { Modal, ConfirmDialog } from '../components/ui.jsx';
 import StudentForm from '../components/StudentForm.jsx';
 import StudentCard, { StatusBadge, gradeOf } from '../components/StudentCard.jsx';
-import Pagination from '../components/Pagination.jsx';
+import { Pagination } from '../components/ui.jsx';
 
 const COLUMNS = [
   { key: 'name', label: 'Name' },

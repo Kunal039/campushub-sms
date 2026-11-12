@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { api } from '../api/client.js';
-import { useToast } from '../context/ToastContext.jsx';
-import Spinner, { ErrorState } from '../components/Spinner.jsx';
-import Modal, { ConfirmDialog } from '../components/Modal.jsx';
+import { api } from '../api.js';
+import { useToast } from '../context.jsx';
+import { Spinner, ErrorState } from '../components/ui.jsx';
+import { Modal, ConfirmDialog } from '../components/ui.jsx';
 import StudentForm from '../components/StudentForm.jsx';
 import { StatusBadge, gradeOf } from '../components/StudentCard.jsx';
 

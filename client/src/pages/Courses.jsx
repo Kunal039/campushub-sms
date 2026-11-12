@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useState } from 'react';
-import { api } from '../api/client.js';
-import { useAuth } from '../context/AuthContext.jsx';
-import { useToast } from '../context/ToastContext.jsx';
-import Spinner, { ErrorState } from '../components/Spinner.jsx';
-import Modal, { ConfirmDialog } from '../components/Modal.jsx';
-import Field from '../components/Field.jsx';
+import { api } from '../api.js';
+import { useAuth } from '../context.jsx';
+import { useToast } from '../context.jsx';
+import { Spinner, ErrorState } from '../components/ui.jsx';
+import { Modal, ConfirmDialog } from '../components/ui.jsx';
+import { Field } from '../components/ui.jsx';
 
 const DEPARTMENTS = ['Engineering', 'Computing', 'Management', 'Sciences', 'Arts'];
 

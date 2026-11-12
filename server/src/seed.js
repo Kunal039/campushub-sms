@@ -2,10 +2,7 @@
 // Usage: npm run seed   (WARNING: replaces all existing students and courses)
 import 'dotenv/config';
 import mongoose from 'mongoose';
-import { connectDB } from './config/db.js';
-import User from './models/User.js';
-import Course from './models/Course.js';
-import Student from './models/Student.js';
+import { connectDB, User, Course, Student } from './models.js';
 
 const courses = [
   { code: 'BE-CSE', title: 'B.E. Computer Science & Engineering', department: 'Engineering', durationYears: 4 },

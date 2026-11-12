@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { api } from '../api/client.js';
-import { useAuth } from '../context/AuthContext.jsx';
-import Spinner, { ErrorState } from '../components/Spinner.jsx';
+import { api } from '../api.js';
+import { useAuth } from '../context.jsx';
+import { Spinner, ErrorState } from '../components/ui.jsx';
 import { StatusBadge } from '../components/StudentCard.jsx';
 
 function StatCard({ label, value, hint }) {

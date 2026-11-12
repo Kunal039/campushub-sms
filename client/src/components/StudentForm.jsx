@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Field from './Field.jsx';
+import { Field } from './ui.jsx';
 
 const EMPTY = { name: '', rollNo: '', email: '', age: '', course: '', semester: 1, cgpa: '', status: 'active' };
 

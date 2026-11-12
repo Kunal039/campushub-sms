@@ -1,17 +1,12 @@
 import { Routes, Route } from 'react-router-dom';
-import PublicLayout from './components/PublicLayout.jsx';
-import AppLayout from './components/AppLayout.jsx';
-import ProtectedRoute from './components/ProtectedRoute.jsx';
-import Home from './pages/Home.jsx';
-import About from './pages/About.jsx';
-import Login from './pages/Login.jsx';
-import Register from './pages/Register.jsx';
+import { PublicLayout, AppLayout, ProtectedRoute } from './components/Layout.jsx';
+import { Home, About, NotFound } from './pages/PublicPages.jsx';
+import { Login, Register } from './pages/Auth.jsx';
 import Dashboard from './pages/Dashboard.jsx';
 import Students from './pages/Students.jsx';
 import StudentDetail from './pages/StudentDetail.jsx';
 import Courses from './pages/Courses.jsx';
 import Profile from './pages/Profile.jsx';
-import NotFound from './pages/NotFound.jsx';
 
 export default function App() {
   return (
