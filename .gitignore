@@ -3,3 +3,6 @@ dist
 .env
 .mongo-data
 *.log
+
+.vercel
+.env.local
